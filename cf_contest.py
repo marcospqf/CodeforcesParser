@@ -51,9 +51,9 @@ class Contest:
                 break
             else:
                 if(verdict=='TESTING'):
-                    click.secho('Testing.....', fg = 'yellow')
+                    click.secho('Testing......', fg = 'blue')
                 else: 
-                    click.secho('In Queue.....', fg = 'blue')
+                    click.secho('In Queue.....', fg = 'white')
                 time.sleep(0.25)
                 cnt+=1
 
@@ -62,7 +62,7 @@ class Contest:
         self.browser.open('http://codeforces.com/contest/{}/submit/{}'.format(self.contestid, problem.upper()) )
         submission = self.browser.get_form(class_='submit-form')
         if submission is None:
-            click.secho('Cannot find problem', fg = 'red')
+            click.secho('Cannot find problem! Maybe you type the wrong contestID', fg = 'red')
             return
         langcode = self.user.get_langcode()
         submission["programTypeId"] = langcode

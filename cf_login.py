@@ -6,6 +6,7 @@ from robobrowser import RoboBrowser
 import requests
 import json
 import time
+import user_info
 from requests.exceptions import ConnectionError
 import click 
 
@@ -17,9 +18,7 @@ class User:
         self.login()
 
     def _dump_data(self):
-        with open('/Users/marcospauloquintaofernandes/Documents/CodeforcesParser/user_info.json') as data_file:
-            data = json.loads(data_file.read())
-        return data['username'],data['password'],data['langcode'], data['contestid']
+        return user_info.username,user_info.password,user_info.langcode, user_info.contestid
     
     def get_user(self):
         return self._username
