@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+
+import sys
+import os
+import argparse
+import re
+from robobrowser import RoboBrowser
+import cf_contest
+import cf_login
+import click
+
+@click.command()
+@click.argument('problem')
+@click.argument('filename')
+def main(problem, filename):
+   user = cf_login.User()
+   contest = cf_contest.Contest(user)
+   contest.submit(problem, filename)
+
+""" END """ 
+if __name__ == "__main__":	
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("")
+        sys.exit(0)
