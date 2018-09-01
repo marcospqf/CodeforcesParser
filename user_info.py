@@ -1,8 +1,8 @@
 #Enter your username here
-username = 'marcospqlixo'
+username = ''
 
 #Enter your password here
-password = 'pampam1997'
+password = ''
 
 #Enter the contestid here
 contestid = '1028'
