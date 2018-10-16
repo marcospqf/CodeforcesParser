@@ -36,7 +36,7 @@ class Contest:
 
     def watch(self):
         cnt =0
-        while cnt < 50:
+        while cnt < 500:
             id_, probject, verdict, passedTests, timeCon, memCon = self.get_submission_data()
             problem = str(probject['contestId'])+str(probject['index'])
             if verdict != 'TESTING' and verdict != 'IN QUEUE':
