@@ -60,6 +60,8 @@ class User:
             checks = list(map(lambda x: x.getText()[1:].strip(), self.browser.select('div.caption.titled')))
             if self._username not in checks:
                 click.secho('Login Failed.. Wrong password.', fg = 'red')
+                click.secho('Note that username is case sensitive.', fg = 'red')
+
                 return
         except Exception as e:
             click.secho('Login Failed.. Maybe wrong id/password.', fg = 'red')
