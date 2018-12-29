@@ -12,7 +12,7 @@ from pathlib import Path
 import os
 class User:
     def __init__(self):
-        self._jsonpath = '/Users/marcospauloquintaofernandes/Documents/CodeforcesParser/user_info.json'
+        self._jsonpath = os.path.dirname(os.path.realpath(__file__)) + '/user_info.json'
         self._username, self._password, self._langcode, self._contestid = self._dump_data()
         self.browser = RoboBrowser(parser = 'html5lib')
     def _dump_data(self):
