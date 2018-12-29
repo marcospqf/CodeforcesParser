@@ -25,9 +25,10 @@ def change_user_info():
     user.login()
     
 @click.command()
-@click.option('-s', 'submit_problem', nargs=2)
-@click.option('-c', 'change_config', flag_value=True)
-@click.option('-w', 'watch_standings', flag_value = False)
+@click.option('-s', 'submit_problem', nargs=2, help='Submit')
+@click.option('-c', 'change_config', flag_value=True, help='Change config')
+@click.option('-w', 'watch_standings', flag_value = False, help='Watch standings')
+@click.argument('submit_problem', nargs=2, required=False)
 def main(submit_problem, change_config, watch_standings):
     if submit_problem: 
         submit(submit_problem)
