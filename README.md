@@ -3,24 +3,14 @@ Codeforces Parser and Submitter
 
 
 
-##TLDR
-0) put your json absolute filepath in the lines 19 and 34 in cf_login.py
+## TLDR
 
-1) type:
+### 0) Add CodeforcesParser to $PATH
 
-$ mv cf.py cf
-$ chmod +x cf
+### 1) Set username, contestID, langcode, password by typing 
 
+$ cf -c
 
-2)
-add the CodeforcesParser to $PATH
+### 2) All set! To submit, you type:
 
-
-3) add username, contestID, langcode, password typing cf -c
-
-
-4) Be happy! To submit, you type:
-cf [Problem Letter] [problem path] 
-
-### Pay attention on ContestID:
-
+$ cf [Problem Letter] [Problem Path] 
