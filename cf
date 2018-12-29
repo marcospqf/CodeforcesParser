@@ -23,21 +23,42 @@ def change_user_info():
     user = cf_login.User()
     user.change_user_info()
     user.login()
+
+def change_contest_info():
+    user = cf_login.User()
+    user.change_contest_info()
+
+def set_contest_info(contest_id):
+    user = cf_login.User()
+    user._contestid = contest_id
+    user.set_contest_info()
     
+
 @click.command()
 @click.option('-s', 'submit_problem', nargs=2, help='Submit')
 @click.option('-c', 'change_config', flag_value=True, help='Change config')
+@click.option('-cc', 'change_contest', flag_value=True, help='Change contest')
 @click.option('-w', 'watch_standings', flag_value = False, help='Watch standings')
-@click.argument('submit_problem', nargs=2, required=False)
-def main(submit_problem, change_config, watch_standings):
-    if submit_problem: 
-        submit(submit_problem)
+@click.argument('arg1', nargs=1, required=False, type=str)
+@click.argument('arg2', nargs=1, required=False, type=str)
+
+def main(submit_problem, change_config, watch_standings, change_contest, arg1, arg2):
     if change_config:
         change_user_info()
     if watch_standings:
         print(":((((")
+    if submit_problem:
+        submit(submit_problem)
+    if arg2:
+        submit([arg1, arg2])
+        return
+    if arg1:
+        set_contest_info(arg1)
+        return
+    if change_contest:
+        change_contest_info()
 
-
+		
     
 """ END """ 
 if __name__ == "__main__":	
