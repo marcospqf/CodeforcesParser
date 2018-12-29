@@ -12,7 +12,7 @@ from pathlib import Path
 import os
 class User:
     def __init__(self):
-        self._jsonpath = '/Users/marcospauloquintaofernandes/Documents/CodeforcesParser/user_info.json'
+        self._jsonpath = os.path.dirname(os.path.realpath(__file__)) + '/user_info.json'
         self._username, self._password, self._langcode, self._contestid = self._dump_data()
         self.browser = RoboBrowser(parser = 'html5lib')
     def _dump_data(self):
@@ -60,6 +60,8 @@ class User:
             checks = list(map(lambda x: x.getText()[1:].strip(), self.browser.select('div.caption.titled')))
             if self._username not in checks:
                 click.secho('Login Failed.. Wrong password.', fg = 'red')
+                click.secho('Note that username is case sensitive.', fg = 'red')
+
                 return
         except Exception as e:
             click.secho('Login Failed.. Maybe wrong id/password.', fg = 'red')
