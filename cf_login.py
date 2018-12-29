@@ -48,7 +48,16 @@ class User:
         data['contestid'] = self._contestid
         with open(self._jsonpath, 'w') as f:
             json.dump(data, f, indent=4)
-        
+     
+    def set_contest_info(self):
+        with open(self._jsonpath, 'r') as f:
+            data = json.load(f)
+        f.close()
+
+        data['contestid'] = self._contestid
+        with open(self._jsonpath, 'w') as f:
+            json.dump(data, f, indent=4)
+            
 
     def login(self):
         self.browser.open('http://codeforces.com/enter')
