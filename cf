@@ -8,6 +8,7 @@ from robobrowser import RoboBrowser
 import cf_contest
 import cf_login
 import click
+import parser
 
 def submit(args):
     problem, filename = args
@@ -28,10 +29,12 @@ def change_contest_info():
     user = cf_login.User()
     user.change_contest_info()
 
+
 def set_contest_info(contest_id):
     user = cf_login.User()
     user._contestid = contest_id
     user.set_contest_info()
+    parser.parse(contest_id)
     
 
 @click.command()
